@@ -9,5 +9,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('trail/',include(u1)),
     path('trail2/',include(u2)),
-    path('',views.home)
+    path('',views.home , name='home')
     ]

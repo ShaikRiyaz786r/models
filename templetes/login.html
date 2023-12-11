@@ -4,15 +4,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'css/stylesheet.css' %}">
+    
 </head>
 <body>
     <h1>this is login page</h1>
-    {{name}}<br>
-    Username:<input type="text"><br>
-    Password : <input type="password"><br>
-    <input type="button" value="login">
+    
+    <form method="post">
+        {% csrf_token %}
+        
+        {{form1.as_p}}
 
-    <img src="{% static 'images/parrot.jpg' %}">
+        <input type="submit" value='Submit'>
+    </form>
 </body>
 </html>
