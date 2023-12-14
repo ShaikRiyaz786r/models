@@ -6,7 +6,7 @@ from django.db import models
 class Employee(models.Model):
     ename = models.CharField(max_length=255)
     esal = models.IntegerField()
-    eaddr = models.CharField(max_length=255)
+    eaddr = models.CharField(max_length=255,null=False)
 
 
 '''

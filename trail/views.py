@@ -1,8 +1,10 @@
 from django.shortcuts import render,redirect
 from django.http import HttpResponse
 from .forms import EmployeeForm
+from .models import Employee
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate,login
+from django.views import View
 
 def loginPage(request):
     if request.method == 'POST':
@@ -25,5 +27,50 @@ def signup(request):
         return redirect('login')
     return render(request,'signup.html')
 
-def home(request):
-    return render(request,'index.html')
+#function based view
+def Home(request):
+    queryset = Employee.objects.all() # 1 record
+    context = {'qs':queryset}
+    return render(request,'index.html',context)
+
+def addEmp(request):
+    if request.method == "POST":
+        ename = request.POST.get('name')
+        esal = request.POST.get('sal')
+        ead = request.POST.get('emp')
+        data = Employee.objects.create(ename = ename,esal = esal,eaddr = ead)
+        data.save()
+    
+    return render(request,'employee.html')
+
+def delete_obj(request, pk):
+    record = Employee.objects.get(id=pk)
+    record.delete()
+    return redirect('home')
+
+def update_obj(request, pk):
+    record = Employee.objects.get(id=pk) # retrieval/ fetching that record 
+    context = {'record':record}
+
+    if request.method=="POST":
+        name = request.POST.get('name')
+        salary = request.POST.get('sal')
+        addr = request.POST.get("emp")
+
+        record.ename = name
+        record.esal = salary
+        record.eaddr = addr
+        record.save()
+        return redirect('home')
+    return render(request,'update.html',context)
+
+#class based view
+# class Home(View):
+#     def get(self,request,*args,**kwargs):
+#         queryset = Employee.objects.all() # 1 record
+#         context = {'qs':queryset}
+#         return render(request,'index.html',context)    
+    
+    
+
+

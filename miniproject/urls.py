@@ -10,4 +10,4 @@ urlpatterns = [
     path('trail/',include(u1)),
     path('trail2/',include(u2)),
     path('', include('trail.urls'))
-    ]
+]

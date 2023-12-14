@@ -1,0 +1,23 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form method="post">
+        {% csrf_token %}
+        <label for="name"><b>EmpName</b></label>
+        <input type="text" placeholder="Enter employee name" name="name" required>      
+        <br><br>
+        <label for="sal"><b>Salary</b></label>
+        <input type="number" placeholder="Enter Salary" name="sal" required>        
+        <br><br>
+        <label for="emp"><b>EmpAddr</b></label>
+        <input type="text" placeholder="Enter empaddr" name="emp" required>        
+        <br><br>
+        <button type="submit">Add Employee</button>
+        
+    </form>
+</body>
+</html>
