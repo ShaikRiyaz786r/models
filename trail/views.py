@@ -29,9 +29,14 @@ def signup(request):
 
 #function based view
 def Home(request):
-    queryset = Employee.objects.all() # 1 record
-    context = {'qs':queryset}
-    return render(request,'index.html',context)
+    city = 'lucknow'
+    url='https://api.openweathermap.org/data/2.5/weather?' + city  +'&appid=46091d9467bfd302bf7e98a5383f7b48'
+    res = requests.get(url).json()
+    # data={
+    #     'main':res["main"]["humidity"]
+    # }
+    print(res)
+    return render(request,'index.html')
 
 def addEmp(request):
     if request.method == "POST":
@@ -64,13 +69,6 @@ def update_obj(request, pk):
         return redirect('home')
     return render(request,'update.html',context)
 
-#class based view
-# class Home(View):
-#     def get(self,request,*args,**kwargs):
-#         queryset = Employee.objects.all() # 1 record
-#         context = {'qs':queryset}
-#         return render(request,'index.html',context)    
-    
-    
+
 
 

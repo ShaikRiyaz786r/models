@@ -13,7 +13,7 @@ SECRET_KEY = 'django-insecure-t$szzrqv2hw4#c*ubq9c$xjco$_t$7bgkq=*6f40jjq2)r(c9n
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['.vercel.app/']
 
 
 # Application definition
@@ -26,7 +26,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'trail',
-    'trail2'
 ]
 
 MIDDLEWARE = [
@@ -65,10 +64,8 @@ WSGI_APPLICATION = 'miniproject.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'test1',
-        'USER':'root',
-        'PASSWORD':'root@123',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 

@@ -4,30 +4,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
+    
     <h1>welcom to home page</h1>
     <button><a href="/trail/login/">Login</a></button><br><br>
     <button><a href="/trail/signup/">Signup</a></button><br><br>
     <button><a href="/trail/add/">Addemp</a></button>
     <br><br>
-    <table border="2px">
-        <tr>
-            <th>Id</th>
-            <th>Employee Name</th>
-            <th>Employee salary</th>
-            <th>Employee address</th>
-            <th>Action</th>
-        </tr>
-        {% for obj in qs %}
-        <tr>
-            <td>{{obj.id}}</td>
-            <td>{{obj.ename}}</td>
-            <td>{{obj.esal}}</td>
-            <td>{{obj.eaddr}}</td>
-            <td><button><a href="/update/{{obj.id}}">Update</a></button></td>
-            <td><button><a href="/delete/{{obj.id}}">Delete</a></button></td>
-
-        </tr>
-        {% endfor %}
-    </table>
+    
 </body>
 </html>
