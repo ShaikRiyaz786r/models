@@ -29,13 +29,7 @@ def signup(request):
 
 #function based view
 def Home(request):
-    city = 'lucknow'
-    url='https://api.openweathermap.org/data/2.5/weather?' + city  +'&appid=46091d9467bfd302bf7e98a5383f7b48'
-    res = requests.get(url).json()
-    # data={
-    #     'main':res["main"]["humidity"]
-    # }
-    print(res)
+    
     return render(request,'index.html')
 
 def addEmp(request):
